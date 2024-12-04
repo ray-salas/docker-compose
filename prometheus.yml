@@ -1,0 +1,20 @@
+# Global configurations
+global:
+  scrape_interval: 15s  # How often Prometheus scrapes the targets
+ # evaluation_interval: 15s  # How often Prometheus evaluates rules
+
+# Scrape configurations
+scrape_configs:
+
+  # cAdvisor configuration (for Docker container metrics)
+  - job_name: 'cadvisor'
+   # metrics_path: '/metrics'
+    static_configs:
+      - targets: ['cadvisor:8080']  # The cAdvisor service
+
+  # Default Prometheus targets can be added below
+  # You can scrape other services or applications here if desired
+  # Example for scraping a web application on port 8081:
+  # - job_name: 'webapp'
+  #   static_configs:
+  #     - targets: ['webapp:8081']
